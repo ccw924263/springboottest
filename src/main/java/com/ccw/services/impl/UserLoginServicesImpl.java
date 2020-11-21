@@ -21,7 +21,6 @@ public class UserLoginServicesImpl implements UserLoginServicesI {
 
     @Override
     public int add(UserLogin userLogin) {
-        userLogin.setId(1);
         return userLoginMapper.add(userLogin);
     }
 
