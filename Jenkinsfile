@@ -1,3 +1,4 @@
+Jenkinsfile (Declarative Pipeline)
 node {
     checkout scm 
     /* .. snip .. */
@@ -8,17 +9,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
+                sh 'make' 
+                archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true 
             }
         }
     }
