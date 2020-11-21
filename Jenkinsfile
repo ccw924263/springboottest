@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'make' 
+                sh 'mvn -B -DskipTests clean package' 
                 archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true 
             }
         }
